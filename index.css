@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;300;400;500;600;700;800&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #2d494e;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Raleway', sans-serif;
+}
+.container{
+    padding: 15px;
+}
+.title{
+    color: #eeacac;
+}
+.title, label{
+    font-weight: bold;
+}
+input, label{
+    display: block;   
+    margin-bottom: 15px;
+}
+
+input[type="text"]{
+    padding: 8px;
+    background: #4c6e74;
+    border: 0;
+    border-bottom: 1px solid #4c6e74;
+    color: #fcfcfc;
+    transition: 0.5s;
+}
+input[type="text"]:active, 
+input[type="text"]:focus,
+input[type="text"]:not(:placeholder-shown) {
+    border-bottom-color: #c6ffdb;
+    outline: 0;
+    background: transparent;
+}
+::placeholder {
+    color: #fcfcfc;    
+}
+.colorBox{
+    height: 100px;
+    background-color: #eeacac;
+}
