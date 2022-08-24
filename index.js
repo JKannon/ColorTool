@@ -1,5 +1,7 @@
 const hexInput = document.querySelector("#colorInput");
 const inputBox = document.querySelector("#inputColor");
+const sliderText = document.querySelector("#sliderText");
+const slider = document.querySelector("#colorSlider");
 
 const isValidHex = (hex) => {
     //return false if the value is blank or null
@@ -52,3 +54,28 @@ const convertHexToRGB = (hex) => {
     });
     return rgbValues;
 }
+
+const colorToHex = (rgbValue) => {
+    let hex = rgbValue.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+}
+
+const convertRGBToHex = (r,g,b) => {
+    return "#" + colorToHex(r) + colorToHex(b) + colorToHex(g);
+}
+
+// Alternative Approach
+// const convertRGBToHex = (r,g,b) => {
+//     const firstPair = ("0" + r.toString(16)).slice(-2);
+//     const secondPair = ("0" + g.toString(16)).slice(-2);
+//     const thirdPair = ("0" + b.toString(16)).slice(-2);
+//     ^ automatically add a leading 0 and only return the 
+//       last 2 integers with .slice(-2)
+    
+//     const hex = "#" + firstPair + secondPair + thirdPair;
+//     return hex;
+// }
+
+slider.addEventListener("input", ()=>{
+    sliderText.textContent = `${slider.value}%`
+});
