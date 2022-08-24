@@ -52,30 +52,48 @@ const convertHexToRGB = (hex) => {
     hexArray.forEach(element => {
         rgbValues.push(parseInt(element.toString(), 16));
     });
-    return rgbValues;
-}
+    const r = rgbValues[0];
+    const g = rgbValues[1];
+    const b = rgbValues[2];
 
-const colorToHex = (rgbValue) => {
-    let hex = rgbValue.toString(16);
-    return hex.length == 1 ? "0" + hex : hex;
+    return {r,g,b};
 }
 
 const convertRGBToHex = (r,g,b) => {
-    return "#" + colorToHex(r) + colorToHex(b) + colorToHex(g);
-}
-
-// Alternative Approach
-// const convertRGBToHex = (r,g,b) => {
-//     const firstPair = ("0" + r.toString(16)).slice(-2);
-//     const secondPair = ("0" + g.toString(16)).slice(-2);
-//     const thirdPair = ("0" + b.toString(16)).slice(-2);
-//     ^ automatically add a leading 0 and only return the 
-//       last 2 integers with .slice(-2)
+    const firstPair = ("0" + r.toString(16)).slice(-2);
+    const secondPair = ("0" + g.toString(16)).slice(-2);
+    const thirdPair = ("0" + b.toString(16)).slice(-2);
+    // ^ automatically add a leading 0 and only return the 
+    //   last 2 integers with .slice(-2)
     
-//     const hex = "#" + firstPair + secondPair + thirdPair;
-//     return hex;
-// }
+    const hex = "#" + firstPair + secondPair + thirdPair;
+    return hex;
+}
 
 slider.addEventListener("input", ()=>{
     sliderText.textContent = `${slider.value}%`
 });
+
+const increaseRGB = (color, increase) => {
+    // if (color + increase > 255) return 255;
+    // if (color + increase < 0) return 0;
+    // return color + increase;
+
+   // Alternate Approach:
+
+   return Math.min(255, Math.max(0, hex + amount));
+
+   // ^ find the max between 0 and hex + amount incase it is lower than 0
+   // ^ find the lower number between 255 and hex + amount incase it is higher than 255
+} 
+
+const alterColor = (hex, percentage) => {
+   const {r,g,b} =  convertHexToRGB(hex);   
+   let increase = Math.floor((percentage / 100) * 255);
+
+   newR = increaseRGB(r, increase);
+   newG = increaseRGB(g, increase);
+   newB = increaseRGB(b, increase);
+
+   return convertRGBToHex(newR, newG, newB);
+}
