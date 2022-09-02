@@ -8,14 +8,22 @@
             <hr>
             <br>
             <label for="hex">Color (Hex):</label>
-            <input id="colorInput" name="hex" type="text" placeholder="#000000"/>
+            <input id="colorInput" name="hex" type="text" placeholder="#eeacac" value="#eeacac"/>
+            <div class="toggle">
+                <p id="lightenText" class="toggle-text light selected-text">Lighten</p>
+                <div id="toggleBtn" class="toggle-btn">
+                    <div class="inner-circle"></div>
+                </div>
+                <p id="darkenText" class="toggle-text dark">Darken</p>
+            </div>
+            
             <label for="slider">Change Percent(%):</label>
             <span id="sliderText">0%</span>
             <input id="colorSlider" class="slider" min="0" max="100" value="0" name="slider" type="range" />
             <p>Input Color</p>
             <div id="inputColor" class="colorBox">
             </div>
-            <p>Altered Color</p>
+            <p id="alteredColorText">Altered Color</p>
             <div id="alteredColor" class="colorBox">
             </div>
         </div>
