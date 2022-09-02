@@ -12,7 +12,7 @@ html, body {
     padding: 15px;
 }
 .title{
-    color: #eeacac;
+    color: #c6ffdb;
 }
 .title, label{
     font-weight: bold;
@@ -43,4 +43,33 @@ input[type="text"]:not(:placeholder-shown) {
 .colorBox{
     height: 100px;
     background-color: #eeacac;
+}
+.toggle{
+    display: flex;
+    align-items: center;
+    column-gap: .5em;
+    margin-bottom: 1em;
+}
+.toggle-btn {
+    padding: 5px;
+    width: 35px;
+    background-color: #042425;
+    border-radius: 15px;
+}
+.inner-circle{
+    height: 15px;
+    width: 15px;
+    background-color: #c6ffdb;
+    border-radius: 50%;
+    transition: all 250ms;
+}
+.light.selected-text{
+    color: #c6ffdb;
+}
+.dark.selected-text{
+    color: #72ad88;
+}
+.toggle-btn.toggled > .inner-circle {
+    transform: translateX(20px);
+    background-color: #72ad88;
 }
